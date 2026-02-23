@@ -1,0 +1,760 @@
+/*STYLE.CSS — My Portfolio*/
+
+/*CSS Variables (Color Palette & Fonts)*/
+:root {
+  --color-bg: #f5f3ee;           /* Warm off-white page background */
+  --color-primary: #1a1a2e;      /* Deep navy — headers, titles */
+  --color-accent: #e94560;       /* Red-pink — buttons, highlights */
+  --color-accent2: #0f3460;      /* Dark blue — secondary accents */
+  --color-card: #ffffff;         /* White card backgrounds */
+  --color-text: #333333;         /* Dark gray body text */
+  --color-muted: #666666;        /* Lighter gray for subtle text */
+  --color-border: #e0ddd5;       /* Soft border color */
+  --color-gold: #f0a500;         /* Gold for achievement badge */
+
+  --font-heading: 'Playfair Display', serif;  
+  /* Elegant headings*/
+  --font-body: 'Lato', sans-serif;
+  /* Clean body font */
+
+  --max-width: 1100px;   
+  /* Content never exceeds this width */
+  --radius: 12px;        
+  /* Rounded corners for cards/buttons */
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/*Universal Reset*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ── Body ────────────────────────────────────────────────────────────── */
+body {
+  background-color: var(--color-bg);    /* 2.1: Page background color */
+  font-family: var(--font-body);        /* 2.1: Google Font for body */
+  color: var(--color-text);
+  line-height: 1.7;
+  scroll-behavior: smooth;              /* Smooth scrolling for nav links */
+}
+
+/*Headings font*/
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);    
+  /*Font for headings */
+  color: var(--color-primary);
+}
+
+/*Links*/
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/*NAVIGATION BAR*/
+nav {
+  background-color: var(--color-accent2);
+  position: sticky;    /* Sticks to the top when you scroll past it */
+  top: 0;
+  z-index: 100;        
+  /* Keeps nav above all other content */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* Nav list — use Flexbox to lay links in a row */
+nav ul {
+  display: flex;              
+  /* Flexbox: items side-by-side in a row */
+  justify-content: center;    
+  /* Center all links horizontally */
+  list-style: none;           
+  /* Remove bullet points */
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* Each nav link */
+nav ul li a {
+  display: block;
+  padding: 18px 28px;
+  color: rgba(255, 255, 255, 0.85);
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: background 0.3s, color 0.3s;
+}
+
+nav ul li a:hover {
+  background-color: var(--color-accent);
+  color: #ffffff;
+}
+
+
+/*GENERAL SECTION STYLES  (shared across all sections)*/
+.section {
+  padding: 80px 20px;
+  max-width: var(--max-width);   /* 2.1: Limit width */
+  margin: 0 auto;                /* 2.1: Center horizontally */
+}
+
+/* Alternate section rows: every other <section> gets slightly darker bg */
+section:nth-child(even) {
+  background-color: #eceae3;
+}
+
+/* Section title (h2) */
+.section-title {
+  font-size: 2rem;
+  color: var(--color-primary);
+  margin-bottom: 10px;
+  display: inline-block;
+  position: relative;
+}
+
+/* Decorative colored underline beneath each section title */
+/* ::after inserts a visual element right after the title text */
+.section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: var(--color-accent);
+  border-radius: 2px;
+  margin-top: 8px;
+}
+
+/* Subtitle / intro line below the section title */
+.section-subtitle {
+  color: var(--color-muted);
+  font-size: 1rem;
+  margin-bottom: 40px;
+  font-family: var(--font-body);
+}
+
+/* Sub-headings within sections (Education, Certifications) */
+.subsection-title {
+  font-size: 1.3rem;
+  color: var(--color-accent2);
+  margin: 45px 0 20px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--color-border);
+  font-family: var(--font-body);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+
+/*Home Section*/
+
+/*welcome banner */
+.hero {
+  text-align: center;
+  padding: 70px 20px 80px;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent2) 100%);
+  color: white;
+  border-radius: var(--radius);
+  margin-bottom: 55px;
+}
+
+.hero-greeting {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.65);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  font-family: var(--font-body);
+}
+
+.hero-name {
+  font-size: 3.5rem;
+  color: #ffffff;
+  margin-bottom: 22px;
+}
+
+.hero-sub {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 580px;
+  margin: 0 auto 35px;
+  line-height: 1.75;
+  font-family: var(--font-body);
+}
+
+/* Button row in hero */
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Primary CTA button */
+.cta-btn {
+  display: inline-block;
+  background-color: var(--color-accent);
+  color: #ffffff;
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  font-family: var(--font-body);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.cta-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(233, 69, 96, 0.45);
+}
+
+/* Outlined secondary CTA button */
+.cta-outline {
+  background-color: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  color: #ffffff;
+}
+
+.cta-outline:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: #ffffff;
+  box-shadow: none;
+}
+
+/*Hobby Box*/
+.hobby-box {
+  background-color: var(--color-card);
+  border-radius: var(--radius);
+  padding: 44px;
+  box-shadow: var(--shadow);
+  border-left: 5px solid var(--color-accent);
+}
+
+/*Hobby name*/
+.hobby-box h2 {
+  font-size: 1.8rem;
+  margin-bottom: 16px;
+  color: var(--color-primary);
+}
+
+/*Hobby paragraph*/
+.hobby-box p {
+  color: var(--color-text);
+  margin-bottom: 20px;
+  font-size: 1rem;
+  font-family: var(--font-body);
+}
+
+/*"3 Benefits" sub-heading*/
+.hobby-box h3 {
+  font-size: 1.05rem;
+  color: var(--color-accent2);
+  margin-bottom: 12px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/*Ordered list*/
+.hobby-box ol {
+  padding-left: 22px;
+  margin-bottom: 24px;
+}
+
+.hobby-box ol li {
+  margin-bottom: 8px;
+  color: var(--color-text);
+  font-family: var(--font-body);
+}
+
+/* Achievement badge*/
+.achievement-badge {
+  display: inline-block;
+  background-color: var(--color-gold);
+  color: #1a1a1a;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  font-family: var(--font-body);
+  margin-top: 8px;
+  letter-spacing: 0.5px;
+}
+
+
+/*ABOUT SECTION*/
+
+.about-section {
+  /* This class adds extra bottom padding since this section has more content */
+  padding-bottom: 60px;
+}
+
+/* Profile pic + text layout — side by side using Flexbox */
+.about-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  flex-wrap: wrap;   /* Stacks on mobile screens */
+  margin-bottom: 10px;
+}
+
+/*Bio paragraphs*/
+.about-text p {
+  color: var(--color-text);
+  margin-bottom: 14px;
+  font-size: 1rem;
+  font-family: var(--font-body);
+}
+
+/*Skill tags row*/
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/*Each skill pill*/
+.skill-tag {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  font-family: var(--font-body);
+  letter-spacing: 0.3px;
+}
+
+/*Education Cards*/
+.education-grid {
+  margin-top: 10px;
+}
+
+/*Each education entry*/
+.edu-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  background-color: var(--color-card);
+  border-radius: var(--radius);
+  padding: 26px 28px;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid var(--color-accent2);
+}
+
+.edu-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.edu-details h4 {
+  font-size: 1.1rem;
+  color: var(--color-primary);
+  margin-bottom: 4px;
+}
+
+.edu-school {
+  font-weight: 700;
+  color: var(--color-accent2);
+  font-size: 0.95rem;
+  font-family: var(--font-body);
+}
+
+.edu-field, .edu-date, .edu-skills {
+  font-size: 0.88rem;
+  color: var(--color-muted);
+  font-family: var(--font-body);
+  margin-top: 3px;
+}
+
+/*Certification Cards*/
+.certs-grid {
+  margin-top: 10px;
+}
+
+.cert-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  background-color: var(--color-card);
+  border-radius: var(--radius);
+  padding: 26px 28px;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid var(--color-gold);
+}
+
+.cert-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.cert-details h4 {
+  font-size: 1.05rem;
+  color: var(--color-primary);
+  margin-bottom: 4px;
+}
+
+.cert-org {
+  font-weight: 700;
+  color: var(--color-accent2);
+  font-size: 0.92rem;
+  font-family: var(--font-body);
+}
+
+.cert-date, .cert-skills {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  font-family: var(--font-body);
+  margin-top: 3px;
+}
+
+
+/*PROJECTS SECTION — CSS GRID layout*/
+
+/* CSS Grid — automatically places cards side by side then wraps */
+.projects-grid {
+  display: grid;
+  /*auto-fit: creates as many columns as fit.minmax(290px, 1fr): each column at minimum 290px, max = equal share*/
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 28px;
+  margin-top: 10px;
+}
+
+/*Individual project card*/
+.project-card {
+  background-color: var(--color-card);
+  border-radius: var(--radius);
+  padding: 32px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;   /* Stack content vertically inside card */
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+}
+
+/*Cards float up slightly on hover*/
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.12);
+}
+
+/* Featured card gets a gold left border to stand out */
+.featured-card {
+  border-left: 5px solid var(--color-gold);
+  background: linear-gradient(to bottom right, #fffdf5, #ffffff);
+}
+
+/*⭐ Featured Project label at the top of the card*/
+.featured-badge {
+  display: inline-block;
+  background-color: var(--color-gold);
+  color: #1a1a1a;
+  font-size: 0.75rem;
+  font-weight: 700;
+  font-family: var(--font-body);
+  padding: 4px 12px;
+  border-radius: 50px;
+  margin-bottom: 16px;
+  letter-spacing: 0.5px;
+  width: fit-content;
+}
+
+/* Emoji icon at top of each card */
+.card-icon {
+  font-size: 2.5rem;
+  margin-bottom: 14px;
+}
+
+/*Project card title*/
+.project-card h3 {
+  font-size: 1.2rem;
+  color: var(--color-primary);
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+/*Project card description*/
+.project-card p {
+  color: var(--color-muted);
+  font-size: 0.93rem;
+  line-height: 1.65;
+  font-family: var(--font-body);
+  flex: 1;   /* Pushes the links to the bottom of the card */
+}
+
+/*Skills line inside project cards*/
+.project-skills {
+  font-size: 0.82rem !important;
+  color: var(--color-accent2) !important;
+  margin-top: 12px;
+  padding: 8px 12px;
+  background-color: #eef2f7;
+  border-radius: 6px;
+}
+
+/*Button row at bottom of each card*/
+.project-links {
+  display: flex;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+/*Buttons*/
+/* Solid (filled) button */
+.btn {
+  display: inline-block;
+  padding: 10px 22px;
+  background-color: var(--color-accent);
+  color: white;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  font-family: var(--font-body);
+  transition: background 0.2s, transform 0.2s;
+}
+
+.btn:hover {
+  background-color: #c73652;
+  transform: translateY(-2px);
+}
+
+/* Outline (ghost) button */
+.btn-outline {
+  background-color: transparent;
+  border: 2px solid var(--color-accent2);
+  color: var(--color-accent2);
+}
+
+.btn-outline:hover {
+  background-color: var(--color-accent2);
+  color: white;
+  transform: translateY(-2px);
+}
+
+
+/*CONTACT FORM*/
+
+.contact-form {
+  background-color: var(--color-card);
+  padding: 50px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  max-width: 650px;
+  margin: 0 auto;   /*Centers the form*/
+}
+
+/*Each label + input pair*/
+.form-group {
+  margin-bottom: 24px;
+}
+
+/*Labels*/
+.form-group label {
+  display: block;
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-family: var(--font-body);
+}
+
+/*Input fields and textarea*/
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid var(--color-border);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background-color: #fafaf8;
+  transition: border-color 0.3s;
+}
+
+/*Highlight border when user clicks into a field*/
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  background-color: #ffffff;
+}
+
+/*Textarea — allow vertical resize only*/
+.form-group textarea {
+  resize: vertical;
+}
+
+/* Submit button*/
+.submit-btn {
+  display: block;
+  width: 100%;
+  padding: 16px;
+  background-color: var(--color-accent);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  letter-spacing: 1px;
+}
+
+.submit-btn:hover {
+  background-color: #c73652;
+  transform: translateY(-2px);
+}
+
+
+/*FOOTER*/
+footer {
+  background-color: var(--color-primary);
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 44px 20px;
+}
+
+footer p {
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+  font-family: var(--font-body);
+}
+
+/*Social links row*/
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  margin: 18px 0;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 700;
+  font-size: 0.95rem;
+  font-family: var(--font-body);
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: var(--color-accent);
+}
+
+/*Copyright line*/
+.footer-copy {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.38);
+  margin-top: 10px;
+}
+
+
+/*RESPONSIVENESS — Media Queries @media (max-width: Xpx) = "apply ONLY when screen ≤ X pixels wide" This makes the site look great on phones and tablets*/
+
+/*Tablet (≤ 768px wide)*/
+@media (max-width: 768px) {
+
+  /*Smaller header name*/
+  header h1 {
+    font-size: 2.2rem;
+  }
+
+  /*Smaller hero name*/
+  .hero-name {
+    font-size: 2.5rem;
+  }
+
+  /*Stack nav links vertically*/
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav ul li a {
+    padding: 12px 20px;
+  }
+
+  /*Stack profile pic and bio text vertically*/
+  .about-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  /*Center skill tags*/
+  .skills {
+    justify-content: center;
+  }
+
+  /*Center the section title underline*/
+  .section-title::after {
+    margin: 8px auto 0;
+  }
+
+  /*Reduce form padding*/
+  .contact-form {
+    padding: 30px 22px;
+  }
+
+  /*Education/cert cards stack their content*/
+  .edu-card, .cert-card {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+/*Mobile (≤ 480px wide)*/
+@media (max-width: 480px) {
+
+  /*Smaller hero name on phones*/
+  .hero-name {
+    font-size: 2rem;
+  }
+
+  /*Tighter section padding*/
+  .section {
+    padding: 50px 16px;
+  }
+
+  .hobby-box {
+    padding: 26px 20px;
+  }
+
+  /*Project link buttons stack vertically on phones*/
+  .project-links {
+    flex-direction: column;
+  }
+
+  .btn {
+    text-align: center;
+  }
+
+  /*Hero buttons stack vertically*/
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /*Footer links stack vertically*/
+  .footer-links {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /*Project cards take full width (1 column) on phones*/
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
