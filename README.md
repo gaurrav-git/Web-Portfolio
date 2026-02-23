@@ -150,14 +150,6 @@ This project was built as an HTML & CSS assignment. Here's how every requirement
 - How `transition` creates smooth hover animations
 - How `box-shadow` and `border-radius` make cards look modern and clean
 
-## What I Want to Add in the Future
-
-- [ ] A real photo instead of the "GA" initials circle
-- [ ] JavaScript to make the contact form actually send emails (using Formspree)
-- [ ] A dark mode toggle button
-- [ ] Animations when sections appear as you scroll (using JavaScript IntersectionObserver)
-- [ ] More real projects as I build them during my MCA
-
 ## Acknowledgements
 
 - [Google Fonts](https://fonts.google.com) — for the free beautiful fonts
